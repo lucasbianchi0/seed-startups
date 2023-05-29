@@ -21,6 +21,31 @@ app.get('/',async(req,res)=>{
     res.json('hola')
 })
 
+app.get('/startups/post',async(req,res)=>{
+    const newStartups = [
+        {
+            nombre: 'miubi',
+            descripcionCorta:'app de ecommerce de cercania',
+            descripcionGeneral:'app de ecommerce de cercania',
+            categoria:'Robotica',
+        },
+        {
+            nombre: 'strive',
+            descripcionCorta:'app de ecommerce ',
+            descripcionGeneral:'app de ecommerce de cercania',
+            categoria:'Robotica',
+        },
+        {
+            nombre: 'miubi',
+            descripcionCorta:'app de ecommerce de cercania',
+            descripcionGeneral:'app de ecommerce de cercania',
+            categoria:'Ecommerce',
+        },
+    ]
+    const postSTP = await startups.insertMany(newStartups)
+    res.json('hola')
+})
+
 app.get('/startups',async(req,res)=>{
     const startup = await startups.find()
      res.json(startup)
@@ -56,6 +81,12 @@ app.get('/categories',async(req,res)=>{
     const category = await categories.deleteMany()
      res.json('borrado')
  })
+
+ app.get('/startups/delete',async(req,res)=>{
+    const startup = await startups.deleteMany()
+     res.json('borrado')
+ })
+
 
 
 

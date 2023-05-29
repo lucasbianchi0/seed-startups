@@ -4,20 +4,36 @@ const homeServices = require("../services/homeServices")
 const HomeController ={
     getCategoriesPage: async(req,res)=>{ 
         const categories = await homeServices.getCategories()
-        console.log('holaa')
         res.json(categories) 
 
     },
-    getStartupsPage: (req,res)=>{
-        const startups = homeServices.getStartups()
+    getStartupsPage: async(req,res)=>{
+        const startups = await homeServices.getStartups()
+        res.json(startups)
     },
-    getStartupPageById: (req,res)=>{
-        const {id}= req.params
-        const startup = homeServices.getStartupById(id)
+    getStartupPageById: async(req,res)=>{
+        // const {id}= req.params
+        const id = '6474e6035402b1ec0effc1a4'
+        const startup = await homeServices.getStartupById(id)
+        res.json(startup)
     },
-    // postStartupPost: (req,res)=>{
-       
-    // },
+    getStartupPageByCat: async(req,res)=>{
+        // const {id}= req.params
+        const category = 'Robotica'
+        const startupByCat = await homeServices.getStartupsByCat(category)
+        res.json(startupByCat)
+    },
+    postStartupPost: async (req,res)=>{
+        // const {id}= req.params
+        const info = {
+            descripcionPublicacion:'nueva Publi'
+        }
+        const id = '6474e6035402b1ec0effc1a4'
+        const startup = await homeServices.postStartupPoste(info,id)
+        
+
+       res.json('creada')
+    },
     // postContactForm: (req,res)=>{
 
     // }
