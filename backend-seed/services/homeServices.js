@@ -28,8 +28,8 @@ const homeServices ={
     postStartupPoste: async (info,id)=>{
         const startup=  await Startups.updateOne(
             {_id:{$eq:id}},
-            {$push:{publicaciones:info}})
-
+            {$push:{publicaciones:info}}
+        )
         return startup
     }
 }

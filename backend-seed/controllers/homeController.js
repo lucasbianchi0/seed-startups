@@ -12,8 +12,8 @@ const HomeController ={
         res.json(startups)
     },
     getStartupPageById: async(req,res)=>{
-        // const {id}= req.params
-        const id = '6474e6035402b1ec0effc1a4'
+        const {id}= req.params
+        // const id = '6474e6035402b1ec0effc1a4'
         const startup = await homeServices.getStartupById(id)
         res.json(startup)
     },
@@ -25,12 +25,12 @@ const HomeController ={
     },
     postStartupPost: async (req,res)=>{
         // const {id}= req.params
+        // const {info}= req.body
         const info = {
             descripcionPublicacion:'nueva Publi'
         }
         const id = '6474e6035402b1ec0effc1a4'
         const startup = await homeServices.postStartupPoste(info,id)
-        
 
        res.json('creada')
     },
