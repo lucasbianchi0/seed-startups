@@ -17,4 +17,10 @@ export interface Publicacion {
     fecha: string;
   }
 
+  export interface Category {
+    _id: string;
+    title: string;
+    img: string;
+  }
+
   
